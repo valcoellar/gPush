@@ -9,10 +9,12 @@
 const readline = require('readline');   
 const { exec } = require('child_process');  // to execute in cli
 
+function menu(){
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 
 function runCommands(comm){
 	// execute comm in cli
@@ -21,36 +23,53 @@ function runCommands(comm){
 							    console.error(`Error al ejecutar el comando: ${error}`);
 							    return;
 							  }
-							  console.log(`stdout: ${stdout}`);
-							  console.error(`stderr: ${stderr}`);
+
+								console.log(stdout);
+								console.error(stderr);
+							  
+							  //console.log(`stdout: ${stdout}`);
+							  //console.error(`stderr: ${stderr}`);
 							});
+
 }
 
 
-rl.question('Seleccione una opción:\n1. Select work dir \n2. Change msg  2\n3. show Status', (respuesta) => {
+rl.question('Select an option:\n1. Select work dir \n2. Change msg  \n3. show Status\n4. Add . all\n5. Fast Push \n<--. Exit Press CTRL + c\n', (respuesta) => {
   switch (respuesta) {
     case '1':
-      console.log('Opción 1 seleccionada');
-      break;
+      console.log('\nOpción 1 seleccionada\n');
+    break;
     case '2':
-      console.log('Opción 2 seleccionada');
+      console.log('\nOpción 2 seleccionada\n');
        break;
     case '3':
-      console.log('Opción 3 seleccionada');
-			runCommands("git status")
-      break;
+      console.log('\n3-Executing git status\n');
+			runCommands("clear");
+			runCommands("git status");
+	break;
+	case '4':
+      console.log('\n4-Executing git add .\n');
+			runCommands("git add .")
+	break;
+	case '5':
+	      console.log('\n4-Executing git add. // commit -m "date" // push \n');
+				//runCommands("git add .")
+	break;
+	
 
     default:
-      console.log('Opción inválida');
+      console.log('\nNot an Option\n');
+
       break;
   }
   rl.close();
+  menu()
 });
 
+}
 
 
-
-
+menu();
 
 
 
