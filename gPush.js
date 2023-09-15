@@ -81,4 +81,5 @@ rl.question('Select an option:\n1. Select work dir \n2. Change msg  \n3. show St
 menu();
 
 // git add . && git commit -m "mensaje de commit" && git push
+git add . && git commit -m "$(date)" && git push
 
