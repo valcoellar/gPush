@@ -42,6 +42,7 @@ rl.question('Select an option:\n1. Select work dir \n2. Change msg  \n3. show St
   switch (respuesta) {
     case '1':
       console.log('\nOpción 1 seleccionada\n');
+	process.exit(0);
     break;
     case '2':
       console.log('\nOpción 2 seleccionada\n');
@@ -56,10 +57,11 @@ rl.question('Select an option:\n1. Select work dir \n2. Change msg  \n3. show St
 			runCommands("git add .")
 	break;
 	case '5':
-	      console.log('\n4-Executing git add. // commit -m "date" // push \n');
+	      console.log('\n5-Executing git add. // commit -m "date" // push \n');
 		runCommands("git add .")
 		runCommands("git commit -m " + "'" + commitMsg + "'")
 		runCommands("git push ");
+		process.exit(0);
 	break;
 	
 	
