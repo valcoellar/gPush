@@ -83,3 +83,6 @@ menu();
 // git add . && git commit -m "mensaje de commit" && git push
 git add . && git commit -m "$(date)" && git push
 
+git add . && git commit -m "mensaje de commit $(date)" && git push https://<nombre_de_usuario>:<token>@github.com/<nombre_de_usuario>
+
+
