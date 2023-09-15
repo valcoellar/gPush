@@ -38,7 +38,7 @@ function runCommands(comm){
 }
 
 
-rl.question('Select an option:\n1. Select work dir \n2. Change msg  \n3. show Status\n4. Add . all\n5. Fast Push \n7. Store Credentials \n<--. Exit Press CTRL + c\n', (respuesta) => {
+rl.question('Select an option:\n1. Select work dir \n2. Change msg  \n3. show Status\n4. Add . all\n5. Fast Push\n<--. Exit Press CTRL + c\n', (respuesta) => {
   switch (respuesta) {
     case '1':
       console.log('\nOpción 1 seleccionada\n');
@@ -57,15 +57,12 @@ rl.question('Select an option:\n1. Select work dir \n2. Change msg  \n3. show St
 	break;
 	case '5':
 	      console.log('\n4-Executing git add. // commit -m "date" // push \n');
-		//runCommands("git add .")
-		//runCommands("git commit -m " + "'" + commitMsg + "'")
+		runCommands("git add .")
+		runCommands("git commit -m " + "'" + commitMsg + "'")
 		runCommands("git push ");
 	break;
 	
-	case '7':
-		console.log("\n7-Executing  git config --global credential.helper store \n")
-		runCommands("git config --global credential.helper store");
-	break;
+	
 
     default:
       console.log('\nNot an Option\n');
